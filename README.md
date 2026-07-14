@@ -43,11 +43,14 @@ Webhook Watch is a powerful, developer-first, self-hosted webhook debugger and i
    ```bash
    npm install
    ```
-3. Start the development server:
+3. Start the development server (e.g., on port 3001):
    ```bash
-   npm run dev
+   npm run dev -- -p 3001
    ```
-4. Open http://localhost:3000 in your browser.
+4. Open http://localhost:3001 in your browser.
+
+> [!IMPORTANT]
+> The database and server encryption/session secrets are stored in the `data/` directory. This directory is included in `.gitignore` to prevent accidentally committing sensitive local credentials or client data to GitHub.
 
 ### Production Build
 ```bash
