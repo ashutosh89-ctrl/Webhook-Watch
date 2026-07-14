@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  webhook-watch:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: webhook-watch
+    ports:
+      - "3000:3000"
+    volumes:
+      - webhook-watch-data:/app/data
+    environment:
+      - PORT=3000
+      - NODE_ENV=production
+      - DEV_SECRET=PRO_DEVELOPER_KEY
+      # Let empty to trigger our automatic secure file-based secret generation
+      # - JWT_SECRET=your_custom_jwt_secret
+      # - ENCRYPTION_KEY=your_custom_32_byte_hex_key
+    restart: always
+
+volumes:
+  webhook-watch-data:
+    driver: local
